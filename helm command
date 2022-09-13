@@ -1,0 +1,2 @@
+helm install relase_name helmchart_name(folder_name)
+helm install -f dev-value.yml app_name app_name_folder
