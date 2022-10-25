@@ -1,0 +1,8 @@
+stage: deploy
+script:
+  - kubectl config get-contexts --kubeconfig=$AKS_KUBECONFIG
+  - kubectl get pods --kubeconfig=$AKS_KUBECONFIG
+  - helm repo add rabbitmq https://charts.bitnami.com/bitnami
+  - helm template rabbitmq rabbitmq/rabbitmq --kubeconfig=$AKS_KUBECONFIG
+  - helm install rabbitmq rabbitmq/rabbitmq --kubeconfig=$AKS_KUBECONFIG
+  
